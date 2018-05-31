@@ -58,8 +58,16 @@ func main() {
 		log.Printf("Got an error '%s'. Stopping...", err)
 	}
 
-	log.Print(ws.Stop())
-	log.Print(diagnosticsServer.Stop())
+	err := ws.Stop()
+	if err != nil {
+		log.Print(err)
+	}
+
+	err = diagnosticsServer.Stop()
+	if err != nil {
+		log.Print(err)
+	}
 
 	// stop extra tasks ...
+	log.Print("Service was stoped.")
 }
