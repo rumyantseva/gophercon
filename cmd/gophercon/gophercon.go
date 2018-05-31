@@ -15,7 +15,7 @@ func main() {
 
 	// you can also use github.com/kelseyhightower/envconfig
 	// to keep your config more structured
-	port := os.Getenv("SERVICE_PORT")
+	port := os.Getenv("PORT")
 	if len(port) == 0 {
 		log.Fatal("Service port wasn't set")
 	}
