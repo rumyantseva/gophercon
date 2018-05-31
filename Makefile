@@ -12,7 +12,6 @@ CONTAINER_IMAGE?=docker.io/webdeva/${APP}
 GOOS?=linux
 GOARCH?=amd64
 
-
 clean:
 	rm -f ./bin/${GOOS}-${GOARCH}/${APP}
 
