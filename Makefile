@@ -24,9 +24,6 @@ build: clean
 		-X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \
 		-o ./bin/${APP} ${PROJECT}/cmd/gophercon 
 
-run: build
-	PORT=${PORT} INTERNAL_PORT=${INTERNAL_PORT} ./bin/${APP}
-
 container: build
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
 
