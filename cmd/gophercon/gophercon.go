@@ -1,11 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/rumyantseva/gophercon/pkg/routing"
 )
 
 // go run ./cmd/gophercon/gophercon.go
@@ -13,15 +12,7 @@ import (
 func main() {
 	log.Printf("Service is starting...")
 
-	r := mux.NewRouter()
-	r.HandleFunc("/home", homeHandler()).Methods(http.MethodGet)
+	r := routing.BaseRouter()
 
 	http.ListenAndServe(":8000", r)
-}
-
-func homeHandler() func(http.ResponseWriter, *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("Request is processing: %s", r.URL.Path)
-		fmt.Fprint(w, "Hello! Your request was processed.")
-	}
 }
