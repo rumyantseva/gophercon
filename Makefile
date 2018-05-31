@@ -1,6 +1,7 @@
 PROJECT?=github.com/rumyantseva/gophercon
 APP?=gophercon
 PORT?=8000
+INTERNAL_PORT?=3001
 
 RELEASE?=0.0.1
 COMMIT?=$(shell git rev-parse --short HEAD)
@@ -22,7 +23,7 @@ build: clean
 		-o ./bin/${APP} ${PROJECT}/cmd/gophercon 
 
 run: build
-	PORT=${PORT} ./bin/${APP}
+	PORT=${PORT} INTERNAL_PORT=${INTERNAL_PORT} ./bin/${APP}
 
 test:
 	go test -race ./...
