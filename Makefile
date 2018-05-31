@@ -22,7 +22,7 @@ build: clean
 	-ldflags "-s -w -X ${PROJECT}/version.Release=${RELEASE} \
 		-X ${PROJECT}/version.Commit=${COMMIT} \
 		-X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \
-		-o ./bin/${APP} ${PROJECT}/cmd/gophercon 
+		-o ./bin/${APP} ${PROJECT}/cmd 
 
 container: build
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
