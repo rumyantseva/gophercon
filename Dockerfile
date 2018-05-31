@@ -6,5 +6,5 @@ ENV INTERNAL_PORT 8001
 EXPOSE $PORT
 EXPOSE $INTERNAL_PORT
 
-COPY gophercon /
+COPY ./bin/gophercon /
 CMD ["/gophercon"]
