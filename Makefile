@@ -31,10 +31,10 @@ container: build
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
 
 run: container
-	docker stop $(APP):$(RELEASE) || true && docker rm $(APP):$(RELEASE) || true
+	docker stop $(CONTAINER_IMAGE):$(RELEASE) || true && docker rm $(CONTAINER_IMAGE):$(RELEASE) || true
 	docker run --name ${APP} -p ${PORT}:${PORT} -p ${INTERNAL_PORT}:${INTERNAL_PORT} --rm \
 		-e "PORT=${PORT}" -e "INTERNAL_PORT=${INTERNAL_PORT}" \
-		$(APP):$(RELEASE)
+		$(CONTAINER_IMAGE):$(RELEASE)
 
 test:
 	go test -race ./...
