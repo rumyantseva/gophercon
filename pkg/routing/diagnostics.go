@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// DiagnosticsRouter returns router configured with kubernetes diagnostics endpoints healthz and readyz
 func DiagnosticsRouter() *mux.Router {
 	r := mux.NewRouter()
 

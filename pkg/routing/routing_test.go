@@ -8,7 +8,7 @@ import (
 	"github.com/rumyantseva/gophercon/pkg/routing"
 )
 
-func TestBaseRouter(t *testing.T) {
+func TestBaseRouter_ShouldReturn_StatusOK_whenHitting_HomeEndpoint(t *testing.T) {
 	handler := routing.BaseRouter()
 
 	ts := httptest.NewServer(handler)
@@ -20,7 +20,8 @@ func TestBaseRouter(t *testing.T) {
 	}
 
 	// todo: you can use testify library instead
+	expectedStatusCode := http.StatusOK
 	if res.StatusCode != http.StatusOK {
-		t.Errorf("Wrong status code %d (%d expected)", res.StatusCode, http.StatusOK)
+		t.Errorf("Want %d, got %d", expectedStatusCode, res.StatusCode)
 	}
 }
