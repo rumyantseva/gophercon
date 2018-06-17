@@ -1,5 +1,5 @@
 PROJECT?=github.com/rumyantseva/gophercon
-BUILD_PATH?=cmd
+BUILD_PATH?=cmd/gophercon
 APP?=gophercon
 PORT?=8000
 INTERNAL_PORT?=3001
@@ -25,7 +25,7 @@ build: clean
 	-ldflags "-s -w -X ${PROJECT}/version.Release=${RELEASE} \
 		-X ${PROJECT}/version.Commit=${COMMIT} \
 		-X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \
-		-o ./bin/${GOOS}-${GOARCH}/${APP} ${BUILD_PATH}
+		-o ./bin/${GOOS}-${GOARCH}/${APP} ${PROJECT}/${BUILD_PATH}
 
 container: build
 	docker build -t $(CONTAINER_IMAGE):$(RELEASE) .
