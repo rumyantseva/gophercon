@@ -1,5 +1,5 @@
 PROJECT?=github.com/rumyantseva/gophercon
-BUILD_PATH?=${PROJECT}/cmd
+BUILD_PATH?=cmd
 APP?=gophercon
 PORT?=8000
 INTERNAL_PORT?=3001
