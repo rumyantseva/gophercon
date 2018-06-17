@@ -39,7 +39,7 @@ run: container
 test:
 	go test -race ./...
 
-push: build
+push: container
 	docker push $(CONTAINER_IMAGE):$(RELEASE)
 
 deploy: push
