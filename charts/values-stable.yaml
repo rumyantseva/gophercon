@@ -34,9 +34,9 @@ workflow: prod
 image:
   ## Docker Registry/Hub image name and tag
   ##
-  registry: gcr.io/containers-206912
+  registry: docker.io/webdeva
   name: rumyantseva-gophercon
-  tag: 0.0.2
+  tag: 0.0.3
 
   ## Docker Registry/Hub image pull policy
   ##
